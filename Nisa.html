@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You Nisa</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      animation: spin 10s linear infinite;
+    }
+
+    .heart {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: red;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      animation: pulse 1.5s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -50px;
+      top: 0;
+    }
+
+    .text {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      color: #fff;
+      font-size: 20px;
+      margin-top: 20px;
+      white-space: nowrap;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1) rotate(45deg); }
+      50% { transform: translate(-50%, -50%) scale(1.1) rotate(45deg); }
+      100% { transform: translate(-50%, -50%) scale(1) rotate(45deg); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #f00, 0 0 15px #f00; }
+      to   { text-shadow: 0 0 10px #fff, 0 0 20px #f00, 0 0 25px #f00; }
+    }
+
+    audio {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart"></div>
+    <div class="text">I Love You Nisa</div>
+  </div>
+
+  <!-- Audio music player -->
+  <audio controls autoplay loop>
+    <source src="monolog.mp3 " type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
